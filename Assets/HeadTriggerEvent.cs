@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class HeadTriggerEvent : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class HeadTriggerEvent : MonoBehaviour
     public int CurrentCPRStep2 = 0;
 
     public GameObject timerUI; // Assign the UI timer in the Inspector
-    public Text timerTxt;
+    public TextMeshProUGUI timerTxt;
 
     public bool isCheckingBreath = false;
     public float breathCheckTimer = 10.0f;

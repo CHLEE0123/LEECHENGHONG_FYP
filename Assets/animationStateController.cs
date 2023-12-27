@@ -13,6 +13,7 @@ public class animationStateController : MonoBehaviour
     public Button startButton;
     public GameObject InfoUI;
     public GameObject GoNearUI;
+    public GameObject tutorialUI;
     public GameObject patientModel;
     public GameObject CPRmodel;
     public GameObject teleportPoint;
@@ -37,6 +38,7 @@ public class animationStateController : MonoBehaviour
         patientModel.gameObject.SetActive(true);
         InfoUI.gameObject.SetActive(true);
 
+        tutorialUI.gameObject.SetActive(false);
         GoNearUI.gameObject.SetActive(false);
         CPRmodel.gameObject.SetActive(false);
         teleportPoint.gameObject.SetActive(false);
@@ -77,6 +79,7 @@ public class animationStateController : MonoBehaviour
 
         teleportPoint.gameObject.SetActive(true);
         CPRmodel.gameObject.SetActive(true);
+        tutorialUI.gameObject.SetActive(true);
         patientModel.gameObject.SetActive(false);
         GoNearUI.gameObject.SetActive(false);
 
