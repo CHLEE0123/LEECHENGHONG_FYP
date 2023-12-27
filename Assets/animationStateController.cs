@@ -11,7 +11,7 @@ public class animationStateController : MonoBehaviour
     public float walkSpeed = 0.5f;
     public Vector3 originalPosition;
     public Button startButton;
-    public Button GoNearButton;
+    public GameObject InfoUI;
     public GameObject GoNearUI;
     public GameObject patientModel;
     public GameObject CPRmodel;
@@ -34,6 +34,7 @@ public class animationStateController : MonoBehaviour
         originalPosition = this.gameObject.transform.position;
         startButton.gameObject.SetActive(true);
         patientModel.gameObject.SetActive(true);
+        InfoUI.gameObject.SetActive(true);
 
         GoNearUI.gameObject.SetActive(false);
         CPRmodel.gameObject.SetActive(false);
@@ -56,6 +57,9 @@ public class animationStateController : MonoBehaviour
         // Start the animation sequence when the button is clicked
         StartWalking();
 
+
+        InfoUI.gameObject.SetActive(false);
+
         // Hide the button after clicking
         if (startButton != null)
         {
@@ -65,11 +69,16 @@ public class animationStateController : MonoBehaviour
 
     void StartCPRSequence()
     {
-        if (GoNearButton != null)
-        {
-            GoNearUI.gameObject.SetActive(false);
-            GoNearButton.gameObject.SetActive(false);
-        }
+        Debug.Log("Player push GO HELP");
+        player.transform.position = targetPosition.position;
+        player.transform.rotation = targetPosition.rotation;
+        Debug.Log("CPRstep =" + CPRStep);
+
+        CPRmodel.gameObject.SetActive(true);
+        patientModel.gameObject.SetActive(false);
+        GoNearUI.gameObject.SetActive(false);
+
+
         CPRStep += 1;
     }
 
@@ -125,41 +134,27 @@ public class animationStateController : MonoBehaviour
                 Debug.Log("Show GONear UI");
                 GoNearUI.SetActive(true);
                 isLaying = false;
-                if (GoNearButton != null)
-                {
-                    GoNearButton.onClick.AddListener(StartCPRSequence);
-                }
 
             }
         }
 
-        switch (CPRStep)
-        {
-            case 1:
-                // Check if the CPRStep is 1 and the player is in a specific animation state
-                if (currentState.IsName("LayingIdle"))
-                {
-                    Debug.Log("Player go near patient");
-                    player.transform.position = targetPosition.position;
-                    player.transform.rotation = targetPosition.rotation;
-                    Debug.Log("CPRstep =" + CPRStep);
-
-                    CPRmodel.gameObject.SetActive(true);
-                    patientModel.gameObject.SetActive(false);
-                }
-
-
-                break;
-
-            // Add more cases for other CPR steps as needed
-
-            default:
-                // Default case (CPRStep is not recognized)
-                break;
-        }
-
     }
 
+
+    public void OnPokeInteraction()
+    {
+        // Start a coroutine for delayed CPR sequence
+        StartCoroutine(DelayedCPRSequence());
+    }
+
+    private IEnumerator DelayedCPRSequence()
+    {
+        // Wait for 0.5 seconds
+        yield return new WaitForSeconds(0.5f);
+
+        // Start CPR sequence
+        StartCPRSequence();
+    }
 
     void MovePatientForward()
     {
