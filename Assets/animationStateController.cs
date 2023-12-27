@@ -15,6 +15,7 @@ public class animationStateController : MonoBehaviour
     public GameObject GoNearUI;
     public GameObject patientModel;
     public GameObject CPRmodel;
+    public GameObject teleportPoint;
 
     public Transform targetPosition;
     public GameObject player;
@@ -38,7 +39,8 @@ public class animationStateController : MonoBehaviour
 
         GoNearUI.gameObject.SetActive(false);
         CPRmodel.gameObject.SetActive(false);
-        
+        teleportPoint.gameObject.SetActive(false);
+
 
         playerAnimator = this.gameObject.GetComponent<Animator>();
         // Attach the button click event to the method
@@ -70,16 +72,16 @@ public class animationStateController : MonoBehaviour
     void StartCPRSequence()
     {
         Debug.Log("Player push GO HELP");
-        player.transform.position = targetPosition.position;
-        player.transform.rotation = targetPosition.rotation;
-        Debug.Log("CPRstep =" + CPRStep);
+        //player.transform.position = targetPosition.position;
+        //player.transform.rotation = targetPosition.rotation;
 
+        teleportPoint.gameObject.SetActive(true);
         CPRmodel.gameObject.SetActive(true);
         patientModel.gameObject.SetActive(false);
         GoNearUI.gameObject.SetActive(false);
 
-
         CPRStep += 1;
+        Debug.Log("CPRstep =" + CPRStep);
     }
 
     // Update is called once per frame
