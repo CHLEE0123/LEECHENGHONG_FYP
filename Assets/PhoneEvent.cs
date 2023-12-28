@@ -8,6 +8,9 @@ using TMPro;
 
 public class PhoneEvent : MonoBehaviour
 {
+    public HeadTriggerEvent script3;
+    public int CurrentCPRStep3 = 0;
+
     public string No1 = "";
     public string No2 = "";
     public string No3 = "";
@@ -28,6 +31,9 @@ public class PhoneEvent : MonoBehaviour
     {
         BigNoUI.gameObject.SetActive(false);
         messageUI.SetActive(false);
+
+        CurrentCPRStep3 = script3.CurrentCPRStep2;
+        Debug.Log("CurrentCPRstep2 =" + CurrentCPRStep3);
         // Log to check if the UI components are correctly assigned
         Debug.Log("BIGNO1_UI: " + NO1_BUI);
         Debug.Log("BIGNO2_UI: " + NO2_BUI);
@@ -45,272 +51,272 @@ public class PhoneEvent : MonoBehaviour
     {
         //NO1_UI.text = "1";
         //NO1_BUI.text = "1";
-        Debug.Log("NumPad 1 is pressed");
+        //Debug.Log("NumPad 1 is pressed");
         BigNoUI.gameObject.SetActive(true);
         if (No1 == "")
         {
             No1 = "1";
             NO1_UI.text = "1";
             NO1_BUI.text = "1";
-            Debug.Log("No1: " + No1);
+            //Debug.Log("No1: " + No1);
         }
         else if (No1 != "" && No2 == "")
         {
             No2 = "1";
             NO2_UI.text = "1";
             NO2_BUI.text = "1";
-            Debug.Log("No2: " + No2);
+            //Debug.Log("No2: " + No2);
         }
         else if (No1 != "" && No2 != "" && No3 == "")
         {
             No3 = "1";
             NO3_UI.text = "1";
             NO3_BUI.text = "1";
-            Debug.Log("No3: " + No3);
+            //Debug.Log("No3: " + No3);
         }
     }
 
     public void ClickNumPad_2()
     {
-        Debug.Log("NumPad 2 is pressed");
+        //Debug.Log("NumPad 2 is pressed");
         BigNoUI.gameObject.SetActive(true);
         if (No1 == "")
         {
             No1 = "2";
             NO1_UI.text = "2";
             NO1_BUI.text = "2";
-            Debug.Log("No1: " + No1);
+            //Debug.Log("No1: " + No1);
         }
         else if (No1 != "" && No2 == "")
         {
             No2 = "2";
             NO2_UI.text = "2";
             NO2_BUI.text = "2";
-            Debug.Log("No2: " + No2);
+            //Debug.Log("No2: " + No2);
         }
         else if (No1 != "" && No2 != "" && No3 == "")
         {
             No3 = "2";
             NO3_UI.text = "2";
             NO3_BUI.text = "2";
-            Debug.Log("No3: " + No3);
+            //Debug.Log("No3: " + No3);
         }
     }
 
 
     public void ClickNumPad_3()
     {
-        Debug.Log("NumPad 3 is pressed");
+        //Debug.Log("NumPad 3 is pressed");
         BigNoUI.gameObject.SetActive(true);
         if (No1 == "")
         {
             No1 = "3";
             NO1_UI.text = "3";
             NO1_BUI.text = "3";
-            Debug.Log("No1: " + No1);
+            //Debug.Log("No1: " + No1);
         }
         else if (No1 != "" && No2 == "")
         {
             No2 = "3";
             NO2_UI.text = "3";
             NO2_BUI.text = "3";
-            Debug.Log("No2: " + No2);
+            //Debug.Log("No2: " + No2);
         }
         else if (No1 != "" && No2 != "" && No3 == "")
         {
             No3 = "3";
             NO3_UI.text = "3";
             NO3_BUI.text = "3";
-            Debug.Log("No3: " + No3);
+            //Debug.Log("No3: " + No3);
         }
     }
 
     public void ClickNumPad_4()
     {
-        Debug.Log("NumPad 4 is pressed");
+        //Debug.Log("NumPad 4 is pressed");
         BigNoUI.gameObject.SetActive(true);
         if (No1 == "")
         {
             No1 = "4";
             NO1_UI.text = "4";
             NO1_BUI.text = "4";
-            Debug.Log("No1: " + No1);
+            //Debug.Log("No1: " + No1);
         }
         else if (No1 != "" && No2 == "")
         {
             No2 = "4";
             NO2_UI.text = "4";
             NO2_BUI.text = "4";
-            Debug.Log("No2: " + No2);
+            //Debug.Log("No2: " + No2);
         }
         else if (No1 != "" && No2 != "" && No3 == "")
         {
             No3 = "4";
             NO3_UI.text = "4";
             NO3_BUI.text = "4";
-            Debug.Log("No3: " + No3);
+            //Debug.Log("No3: " + No3);
         }
     }
 
     public void ClickNumPad_5()
     {
-        Debug.Log("NumPad 5 is pressed");
+        //Debug.Log("NumPad 5 is pressed");
         BigNoUI.gameObject.SetActive(true);
         if (No1 == "")
         {
             No1 = "5";
             NO1_UI.text = "5";
             NO1_BUI.text = "5";
-            Debug.Log("No1: " + No1);
+            //Debug.Log("No1: " + No1);
         }
         else if (No1 != "" && No2 == "")
         {
             No2 = "5";
             NO2_UI.text = "5";
             NO2_BUI.text = "5";
-            Debug.Log("No2: " + No2);
+            //Debug.Log("No2: " + No2);
         }
         else if (No1 != "" && No2 != "" && No3 == "")
         {
             No3 = "5";
             NO3_UI.text = "5";
             NO3_BUI.text = "5";
-            Debug.Log("No3: " + No3);
+            //Debug.Log("No3: " + No3);
         }
     }
 
     public void ClickNumPad_6()
     {
-        Debug.Log("NumPad 6 is pressed");
+        //Debug.Log("NumPad 6 is pressed");
         BigNoUI.gameObject.SetActive(true);
         if (No1 == "")
         {
             No1 = "6";
             NO1_UI.text = "6";
             NO1_BUI.text = "6";
-            Debug.Log("No1: " + No1);
+            //Debug.Log("No1: " + No1);
         }
         else if (No1 != "" && No2 == "")
         {
             No2 = "6";
             NO2_UI.text = "6";
             NO2_BUI.text = "6";
-            Debug.Log("No2: " + No2);
+            //Debug.Log("No2: " + No2);
         }
         else if (No1 != "" && No2 != "" && No3 == "")
         {
             No3 = "6";
             NO3_UI.text = "6";
             NO3_BUI.text = "6";
-            Debug.Log("No3: " + No3);
+            //Debug.Log("No3: " + No3);
         }
     }
 
     public void ClickNumPad_7()
     {
-        Debug.Log("NumPad 7 is pressed");
+        //Debug.Log("NumPad 7 is pressed");
         BigNoUI.gameObject.SetActive(true);
         if (No1 == "")
         {
             No1 = "7";
             NO1_UI.text = "7";
             NO1_BUI.text = "7";
-            Debug.Log("No1: " + No1);
+            //Debug.Log("No1: " + No1);
         }
         else if (No1 != "" && No2 == "")
         {
             No2 = "7";
             NO2_UI.text = "7";
             NO2_BUI.text = "7";
-            Debug.Log("No2: " + No2);
+            //Debug.Log("No2: " + No2);
         }
         else if (No1 != "" && No2 != "" && No3 == "")
         {
             No3 = "7";
             NO3_UI.text = "7";
             NO3_BUI.text = "7";
-            Debug.Log("No3: " + No3);
+            //Debug.Log("No3: " + No3);
         }
     }
 
     public void ClickNumPad_8()
     {
-        Debug.Log("NumPad 8 is pressed");
+        //Debug.Log("NumPad 8 is pressed");
         BigNoUI.gameObject.SetActive(true);
         if (No1 == "")
         {
             No1 = "8";
             NO1_UI.text = "8";
             NO1_BUI.text = "8";
-            Debug.Log("No1: " + No1);
+            //Debug.Log("No1: " + No1);
         }
         else if (No1 != "" && No2 == "")
         {
             No2 = "8";
             NO2_UI.text = "8";
             NO2_BUI.text = "8";
-            Debug.Log("No2: " + No2);
+            //Debug.Log("No2: " + No2);
         }
         else if (No1 != "" && No2 != "" && No3 == "")
         {
             No3 = "8";
             NO3_UI.text = "8";
             NO3_BUI.text = "8";
-            Debug.Log("No3: " + No3);
+            //Debug.Log("No3: " + No3);
         }
     }
 
     public void ClickNumPad_9()
     {
-        Debug.Log("NumPad 8 is pressed");
+        Debug.Log("NumPad 9 is pressed");
         BigNoUI.gameObject.SetActive(true);
         if (No1 == "")
         {
             No1 = "9";
             NO1_UI.text = "9";
             NO1_BUI.text = "9";
-            Debug.Log("No1: " + No1);
+            //Debug.Log("No1: " + No1);
         }
         else if (No1 != "" && No2 == "")
         {
             No2 = "9";
             NO2_UI.text = "9";
             NO2_BUI.text = "9";
-            Debug.Log("No2: " + No2);
+            //Debug.Log("No2: " + No2);
         }
         else if (No1 != "" && No2 != "" && No3 == "")
         {
             No3 = "9";
             NO3_UI.text = "9";
             NO3_BUI.text = "9";
-            Debug.Log("No3: " + No3);
+            //Debug.Log("No3: " + No3);
         }
     }
 
     public void ClickNumPad_0()
     {
-        Debug.Log("NumPad 0 is pressed");
+        //Debug.Log("NumPad 0 is pressed");
         BigNoUI.gameObject.SetActive(true);
         if (No1 == "")
         {
             No1 = "0";
             NO1_UI.text = "0";
             NO1_BUI.text = "0";
-            Debug.Log("No1: " + No1);
+            //Debug.Log("No1: " + No1);
         }
         else if (No1 != "" && No2 == "")
         {
             No2 = "0";
             NO2_UI.text = "0";
             NO2_BUI.text = "0";
-            Debug.Log("No2: " + No2);
+            //Debug.Log("No2: " + No2);
         }
         else if (No1 != "" && No2 != "" && No3 == "")
         {
             No3 = "0";
             NO3_UI.text = "0";
             NO3_BUI.text = "0";
-            Debug.Log("No3: " + No3);
+            //Debug.Log("No3: " + No3);
         }
     }
 
@@ -321,14 +327,14 @@ public class PhoneEvent : MonoBehaviour
             No3 = "";
             NO3_UI.text = "";
             NO3_BUI.text = "";
-            Debug.Log("No3: " + No3);
+            //Debug.Log("No3: " + No3);
         }
         else if (No3 == "" && No2 != "")
         {
             No2 = "";
             NO2_UI.text = "";
             NO2_BUI.text = "";
-            Debug.Log("No2: " + No2);
+            //Debug.Log("No2: " + No2);
         }
         else if (No3 == "" && No2 == "" && No1 != "")
         {
@@ -336,7 +342,7 @@ public class PhoneEvent : MonoBehaviour
             NO1_UI.text = "";
             NO1_BUI.text = "";
             BigNoUI.gameObject.SetActive(false);
-            Debug.Log("No1: " + No1);
+            //Debug.Log("No1: " + No1);
         }
     }
 
@@ -348,21 +354,30 @@ public class PhoneEvent : MonoBehaviour
 
             messageUI.SetActive(true);
             message.text = "Fast! Call 999!";
-            // Start a coroutine for delayed CPR sequence
+            // Start a coroutine for delayed message hide
             StartCoroutine(Delayed());
+
+
         }
         else
         {
             messageUI.SetActive(true);
             message.text = "Great! You have called 999!";
             StartCoroutine(Delayed());
+            // Increment the CPR step
+            if (CurrentCPRStep3 != 4)
+            {
+                CurrentCPRStep3++;
+                BigNoUI.gameObject.SetActive(true);
+                Debug.Log("CurrentCPRStep3: " + CurrentCPRStep3);
+            }
         }
     }
 
     private IEnumerator Delayed()
     {
-        // Wait for 3 seconds
-        yield return new WaitForSeconds(3f);
+        // Wait for 5 seconds
+        yield return new WaitForSeconds(5f);
 
         // Start CPR sequence
         hidePhoneMessage();

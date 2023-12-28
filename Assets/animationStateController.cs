@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class animationStateController : MonoBehaviour
 {
+    public int CPRStep = 0;
 
     public Animator playerAnimator;
     public float switchTime = 0.2f;
@@ -20,8 +21,6 @@ public class animationStateController : MonoBehaviour
 
     public Transform targetPosition;
     public GameObject player;
-
-    public int CPRStep = 0;
 
     public bool isWalking = false;
     public bool isWalking2 = false;
