@@ -22,6 +22,7 @@ public class PhoneEvent : MonoBehaviour
     public TextMeshProUGUI NO2_BUI;
     public TextMeshProUGUI NO3_BUI;
 
+    public GameObject keypad;
     public GameObject BigNoUI;
     public GameObject messageUI;
     public TextMeshProUGUI message;
@@ -31,6 +32,7 @@ public class PhoneEvent : MonoBehaviour
     {
         BigNoUI.gameObject.SetActive(false);
         messageUI.SetActive(false);
+        keypad.gameObject.SetActive(false);
 
         CurrentCPRStep3 = script3.CurrentCPRStep2;
         Debug.Log("CurrentCPRstep2 =" + CurrentCPRStep3);
@@ -45,6 +47,16 @@ public class PhoneEvent : MonoBehaviour
         Debug.Log("Number2: " + No2);
         Debug.Log("Number3: " + No3);
 
+    }
+    public void showKeypad()
+    {
+        keypad.gameObject.SetActive(true);
+    }
+
+    public void hideKeypad()
+    {
+        keypad.gameObject.SetActive(false);
+        BigNoUI.gameObject.SetActive(false);
     }
 
     public void ClickNumPad_1()
@@ -291,6 +303,7 @@ public class PhoneEvent : MonoBehaviour
             NO3_BUI.text = "9";
             //Debug.Log("No3: " + No3);
         }
+
     }
 
     public void ClickNumPad_0()
@@ -349,17 +362,7 @@ public class PhoneEvent : MonoBehaviour
     public void Call()
     {
 
-        if (No3 != "9" && No2 != "9" && No1 != "9")
-        {
-
-            messageUI.SetActive(true);
-            message.text = "Fast! Call 999!";
-            // Start a coroutine for delayed message hide
-            StartCoroutine(Delayed());
-
-
-        }
-        else
+        if (No3 == "9" && No2 == "9" && No1 == "9")
         {
             messageUI.SetActive(true);
             message.text = "Great! You have called 999!";
@@ -368,9 +371,16 @@ public class PhoneEvent : MonoBehaviour
             if (CurrentCPRStep3 != 4)
             {
                 CurrentCPRStep3++;
-                BigNoUI.gameObject.SetActive(true);
+                BigNoUI.gameObject.SetActive(false);
                 Debug.Log("CurrentCPRStep3: " + CurrentCPRStep3);
             }
+        }
+        else{
+            messageUI.SetActive(true);
+            message.text = "Fast! Call 999!";
+            // Start a coroutine for delayed message hide
+            StartCoroutine(Delayed());
+
         }
     }
 
