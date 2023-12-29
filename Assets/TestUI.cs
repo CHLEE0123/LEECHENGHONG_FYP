@@ -23,22 +23,22 @@ public class TestUI : MonoBehaviour
         //ChangeTextColor(Color.red);
     }
 
-    public void ChangeTextColorRED()
+    public void ChangeRwhite()
     {
         // Change the text color to the specified color
-        RighthandtextComponent.color = Color.red;
+        RighthandtextComponent.color = Color.white;
     }
 
-    public void ChangeTextColorGreen()
+    public void ChangeRGREEN()
     {
         // Change the text color to the specified color
         RighthandtextComponent.color = Color.green;
     }
 
-    public void ChangeLRED()
+    public void ChangeLwhite()
     {
         // Change the text color to the specified color
-        LefthandtextComponent.color = Color.red;
+        LefthandtextComponent.color = Color.white;
     }
 
     public void ChangeLGREEN()
