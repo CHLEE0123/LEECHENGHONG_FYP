@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class AED_Event : MonoBehaviour
 {
+    public GameObject MdBox;
+    public GameObject MdBox_snapPoint;
+    public GameObject pad1_snapPoint;
+    public GameObject pad2_snapPoint;
+
     public GameObject MdBoxVisual;
     public GameObject AEDSet;
 
@@ -13,6 +18,8 @@ public class AED_Event : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        pad1_snapPoint.SetActive(false);
+        pad2_snapPoint.SetActive(false);
         MdBoxVisual.SetActive(false);
         AEDSet.SetActive(false);
         PadUpVisual.SetActive(false);
@@ -27,6 +34,8 @@ public class AED_Event : MonoBehaviour
     public void ShowAED()
     {
         AEDSet.SetActive(true);
+        pad1_snapPoint.SetActive(true);
+        pad2_snapPoint.SetActive(true);
     }
 
     public void ShowMdBoxVisual()
@@ -40,7 +49,12 @@ public class AED_Event : MonoBehaviour
         MdBoxVisual.SetActive(false);
     }
 
+    public void HideMdBox_Snappoint()
+    {
+        MdBox.SetActive(false);
+        MdBox_snapPoint.SetActive(false);
 
+    }
 
 
 
