@@ -34,7 +34,7 @@ public class PhoneEvent : MonoBehaviour
         messageUI.SetActive(false);
         keypad.gameObject.SetActive(false);
 
-        CurrentCPRStep3 = script3.CurrentCPRStep2;
+        //CurrentCPRStep3 = script3.CurrentCPRStep2;
         Debug.Log("CurrentCPRstep2 =" + CurrentCPRStep3);
         // Log to check if the UI components are correctly assigned
         Debug.Log("BIGNO1_UI: " + NO1_BUI);
