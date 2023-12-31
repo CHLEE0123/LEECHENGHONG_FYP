@@ -5,26 +5,27 @@ using UnityEngine;
 public class AED_Event : MonoBehaviour
 {
     public GameObject MdBoxVisual;
+    public GameObject AEDSet;
 
     // Start is called before the first frame update
     void Start()
     {
         MdBoxVisual.SetActive(false);
+        AEDSet.SetActive(false);
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void ShowMdBoxVisual()
     {
         MdBoxVisual.SetActive(true);
+        AEDSet.SetActive(false);
+
     }
 
     public void HideMdBoxVisual()
     {
         MdBoxVisual.SetActive(false);
+        AEDSet.SetActive(true);
     }
 }
