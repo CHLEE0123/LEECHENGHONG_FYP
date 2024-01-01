@@ -8,7 +8,7 @@ public class Shaking : MonoBehaviour
     public animationStateController script1;
     public int CurrentCPRStep1 = 0;
 
-    public Rigidbody patientRigidbody; // Reference to the patient's Rigidbody
+    //public Rigidbody patientRigidbody; // Reference to the patient's Rigidbody
     public bool isShaking = false;
     public GameObject shakeUI; // Assign the UI in the Inspector
 
@@ -80,7 +80,7 @@ public class Shaking : MonoBehaviour
                 ).normalized * shakeForce;
        
                 // Apply the shake force to the patient's Rigidbody
-                patientRigidbody.AddForce(shakeForceVector, ForceMode.Acceleration);
+               // patientRigidbody.AddForce(shakeForceVector, ForceMode.Acceleration);
             }
             else
             {

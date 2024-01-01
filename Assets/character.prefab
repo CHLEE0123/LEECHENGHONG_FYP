@@ -2847,7 +2847,6 @@ MonoBehaviour:
   isWalking: 0
   isWalking2: 0
   isFallDown: 0
-  isLaying: 0
 --- !u!4 &8917382814735443974 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0cf3c07e0bcfcdc46bac3f11751d01e5,

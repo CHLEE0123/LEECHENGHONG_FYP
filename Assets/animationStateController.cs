@@ -8,8 +8,8 @@ public class animationStateController : MonoBehaviour
     public int CPRStep = 0;
 
     public Animator playerAnimator;
-    public float switchTime = 0.2f;
-    public float walkSpeed = 0.5f;
+    public float switchTime = 1f;
+    public float walkSpeed = 1f;
     public Vector3 originalPosition;
     public Button startButton;
     public GameObject InfoUI;
@@ -25,7 +25,7 @@ public class animationStateController : MonoBehaviour
     public bool isWalking = false;
     public bool isWalking2 = false;
     public bool isFallDown = false;
-    public bool isLaying = false;
+    //public bool isLaying = false;
 
     // Start is called before the first frame update
     void Start()
@@ -124,23 +124,22 @@ public class animationStateController : MonoBehaviour
                 //this.gameObject.transform.position = new Vector3(-3, -1, 1);
                 // Switch to laying down animation
                 Debug.Log("Switching to Laying Down");
-                StartLaying();
-                this.gameObject.transform.position = new Vector3(-1, 0, 8); 
-
-            }
-        }
-        else if (isLaying && currentState.IsName("LayingIdle"))
-        {
-            // Check if the fall down animation has been playing for over switchTime seconds
-            if (currentState.normalizedTime > 0.1f)
-            {
-                // Show Go near UI
-                Debug.Log("Show GONear UI");
                 GoNearUI.SetActive(true);
-                isLaying = false;
 
             }
         }
+        //else if (isLaying && currentState.IsName("LayingIdle"))
+        //{
+            // Check if the fall down animation has been playing for over switchTime seconds
+        //    if (currentState.normalizedTime > 0.1f)
+       //     {
+                // Show Go near UI
+         //       Debug.Log("Show GONear UI");
+         //       GoNearUI.SetActive(true);
+         //       isLaying = false;
+
+        //    }
+     //   }
 
     }
 
@@ -164,7 +163,7 @@ public class animationStateController : MonoBehaviour
     {
         // Move the patient forward based on the walking speed
         float distanceToMove = walkSpeed * Time.deltaTime;
-        this.gameObject.transform.Translate(Vector3.forward * distanceToMove);
+        patientModel.transform.Translate(Vector3.forward * distanceToMove);
     }
     void ResetPatientPosition()
     {
@@ -208,16 +207,16 @@ public class animationStateController : MonoBehaviour
         isFallDown = true;
     }
 
-    void StartLaying()
-    {
+    //void StartLaying()
+    //{
         // Reset all parameters
-        ResetAnimatorParameters();
+     //   ResetAnimatorParameters();
 
         // Start laying animation
-        playerAnimator.SetBool("isLaying", true);
-        isFallDown = false;
-        isLaying = true;
-    }
+     //   playerAnimator.SetBool("isLaying", true);
+     //   isFallDown = false;
+      //  isLaying = true;
+   // }
 
 
     void ResetAnimatorParameters()
@@ -226,6 +225,6 @@ public class animationStateController : MonoBehaviour
         playerAnimator.SetBool("isWalking", false);
         playerAnimator.SetBool("isWalking2", false);
         playerAnimator.SetBool("isFallDown", false);
-        playerAnimator.SetBool("isLaying", false);
+       // playerAnimator.SetBool("isLaying", false);
     }
 }
