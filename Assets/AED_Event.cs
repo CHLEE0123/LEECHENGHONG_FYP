@@ -12,6 +12,8 @@ public class AED_Event : MonoBehaviour
     public GameObject MdBoxVisual;
     public GameObject AEDSet;
 
+
+    public GameObject ScissorVisual;
     public GameObject PadUpVisual;
     public GameObject PadDownVisual;
 
@@ -22,8 +24,19 @@ public class AED_Event : MonoBehaviour
         pad2_snapPoint.SetActive(false);
         MdBoxVisual.SetActive(false);
         AEDSet.SetActive(false);
+        ScissorVisual.SetActive(false);
         PadUpVisual.SetActive(false);
         PadDownVisual.SetActive(false);
+    }
+
+    public void HideScissor()
+    {
+        ScissorVisual.SetActive(false);
+
+    }
+    public void ShowScissor()
+    {
+        ScissorVisual.SetActive(true);
     }
 
     public void HideAED()
@@ -34,8 +47,8 @@ public class AED_Event : MonoBehaviour
     public void ShowAED()
     {
         AEDSet.SetActive(true);
-        pad1_snapPoint.SetActive(true);
-        pad2_snapPoint.SetActive(true);
+        //pad1_snapPoint.SetActive(true);
+        //pad2_snapPoint.SetActive(true);
     }
 
     public void ShowMdBoxVisual()
@@ -77,4 +90,5 @@ public class AED_Event : MonoBehaviour
     {
         PadDownVisual.SetActive(false);
     }
+
 }
