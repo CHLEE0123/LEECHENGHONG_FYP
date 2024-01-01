@@ -11,6 +11,8 @@ public class PhoneEvent : MonoBehaviour
     public HeadTriggerEvent script3;
     public int CurrentCPRStep3 = 0;
 
+    public GameObject originalposition;
+
     public string No1 = "";
     public string No2 = "";
     public string No3 = "";
@@ -36,6 +38,7 @@ public class PhoneEvent : MonoBehaviour
 
         //CurrentCPRStep3 = script3.CurrentCPRStep2;
         Debug.Log("CurrentCPRstep2 =" + CurrentCPRStep3);
+
         // Log to check if the UI components are correctly assigned
         Debug.Log("BIGNO1_UI: " + NO1_BUI);
         Debug.Log("BIGNO2_UI: " + NO2_BUI);
@@ -47,6 +50,12 @@ public class PhoneEvent : MonoBehaviour
         Debug.Log("Number2: " + No2);
         Debug.Log("Number3: " + No3);
 
+    }
+
+    public  void ResetToOriginalPosition()
+    {
+        this.transform.position = originalposition.transform.position;
+        this.transform.rotation = originalposition.transform.rotation;
     }
     public void showKeypad()
     {
