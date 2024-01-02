@@ -9,10 +9,6 @@ public class aed_button : MonoBehaviour
     public GameObject aed_Handvisual_shockPlace;
     public GameObject aedButton_UI;
     public GameObject aedButton_UIPlace2;
-    public Collider aed_collider;
-
-    public GameObject AEDold_UI;
-    public GameObject AEDnew_UI;
 
     public GameObject startButton;
     public GameObject shockButton;
@@ -23,22 +19,26 @@ public class aed_button : MonoBehaviour
     public string pad1_state = "0";
     public string pad2_state = "0";
 
+    public bool shouldContinueChecking = true;
+
     // Start is called before the first frame update
     void Start()
     {
         shockButton.SetActive(false);
         startButton.SetActive(true);
-        AEDnew_UI.SetActive(false);
-        aed_collider = GetComponent<Collider>();
+        aed_Handvisual.SetActive(true);
     }
 
-    void Update()
+
+void Update()
     {
-        if (pad1_state == "1" && pad2_state == "1")
+        if (shouldContinueChecking && pad1_state == "1" && pad2_state == "1")
         {
+            
+            startButton.SetActive(false);
             aedUI_Text.text = "Make sure NOBODY is TOUCHING the patient, Press on 'Shock' button";
             aedButton_Text.text = "Shock";
-            //aed_collider.enabled = true;
+            aedButton_UI.SetActive(true);
             aed_Handvisual.SetActive(true);
             shockButton.SetActive(true);
             aed_Handvisual.transform.position = aed_Handvisual_shockPlace.transform.position;
@@ -46,59 +46,38 @@ public class aed_button : MonoBehaviour
 
             aedButton_UI.transform.position = aedButton_UIPlace2.transform.position;
 
-            
+            // Once the condition is met, stop further checking
+            shouldContinueChecking = false;
+
         }
 
     }
 
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Hand"))
-        {
 
-            aed_Handvisual.SetActive(false);
-        }
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Hand"))
-        {
-
-            aed_Handvisual.SetActive(true);
-        }
-    }
 
     public void startButton_pock()
     {
-        if (aed_collider != null)
-        {
-            // startButton.SetActive(false);
+       /// if (aed_collider != null)
+       // {            
             // Set the collider's enabled property to false
             Debug.Log("Shock button pocked!");
-            aed_collider.enabled = false;
+        aedButton_UI.SetActive(false);
             aed_Handvisual.SetActive(false);
             aedUI_Text.text = "First, Cut off patient's cloth with the scissor";
-        }
+      //  }
 
     }
 
-    public void startButton_release()
-    {
-        startButton.SetActive(false);
-    }
 
     public void Shock_pock()
     {
         // Set the collider's enabled property to false
         
         Debug.Log("Shock button pocked!");
-        //aed_collider.enabled = false;
+        aedButton_UI.SetActive(false);
         aed_Handvisual.SetActive(false);
-        //aedUI_Text.text = "Ready to shock, 3..2..1.. Shock!";
-        AEDold_UI.SetActive(false);
-        AEDnew_UI.SetActive(true);
-        
+        aedUI_Text.text = "Ready to shock, 3..2..1.. Shock!";
+      
         Debug.Log("Shock button pocked!DONE DONE DONE");
 
     }
@@ -116,11 +95,15 @@ public class aed_button : MonoBehaviour
     public void pad1_UnSnapped()
     {
         pad1_state = "0";
+        //shouldContinueChecking = true;
+        //aedUI_Text.text = "Stick the pad on the patient";
     }
 
     public void pad2_UnSnapped()
     {
         pad2_state = "0";
+        //shouldContinueChecking = true;
+        //aedUI_Text.text = "Stick the pad on the patient";
     }
 
 }

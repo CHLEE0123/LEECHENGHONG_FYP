@@ -29568,15 +29568,13 @@ MonoBehaviour:
   aed_Handvisual_shockPlace: {fileID: 1121690349}
   aedButton_UI: {fileID: 1695327207}
   aedButton_UIPlace2: {fileID: 119845788}
-  aed_collider: {fileID: 4347345918536842342}
-  AEDold_UI: {fileID: 838465113}
-  AEDnew_UI: {fileID: 2021379417}
   startButton: {fileID: 5457128866580114634}
   shockButton: {fileID: 359081205}
   aedUI_Text: {fileID: 561717730}
   aedButton_Text: {fileID: 406744194}
   pad1_state: 0
   pad2_state: 0
+  shouldContinueChecking: 1
 --- !u!33 &4347345918543025632
 MeshFilter:
   m_ObjectHideFlags: 0

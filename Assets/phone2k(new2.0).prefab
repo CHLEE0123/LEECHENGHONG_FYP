@@ -254,6 +254,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   script3: {fileID: 0}
   CurrentCPRStep3: 0
+  originalposition: {fileID: 0}
   No1: 
   No2: 
   No3: 
