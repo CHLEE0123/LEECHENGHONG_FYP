@@ -21,7 +21,7 @@ public class AirwayEvent : MonoBehaviour
     {
        
         AirwayUI.SetActive(false);
-        HandUI.SetActive(true);
+        HandUI.SetActive(false);
         HandVisual.SetActive(false);
         PosesDetector.SetActive(false);
         rescueBreathArea.SetActive(false);
