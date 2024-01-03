@@ -8,6 +8,9 @@ public class Shaking : MonoBehaviour
     public animationStateController script1;
     public int CurrentCPRStep1 = 0;
 
+    public GameObject shake_oneself;
+    public GameObject CheckBreath_component;
+
     //public Rigidbody patientRigidbody; // Reference to the patient's Rigidbody
     public bool isShaking = false;
     public GameObject shakeUI; // Assign the UI in the Inspector
@@ -29,6 +32,8 @@ public class Shaking : MonoBehaviour
         shakeUI.SetActive(false);
         CurrentCPRStep1 = script1.CPRStep;
         Debug.Log("CurrentCPRstep1 =" + CurrentCPRStep1);
+
+        CheckBreath_component.gameObject.SetActive(false);
 
     }
 
@@ -66,6 +71,7 @@ public class Shaking : MonoBehaviour
             {
                 Debug.Log("!!!!Shaking Started and shirt will shake!!!!");
 
+                StartCoroutine(DelayedHideNext());
                 // Increment the CPR step
                 if (CurrentCPRStep1 != 2)
                 {
@@ -108,5 +114,20 @@ public class Shaking : MonoBehaviour
         shakeTimer = 0.0f; // Reset the shake timer
         patientAnimator.SetBool(shakeAnimationBool, false);
         Debug.Log("CurrentCPRstep1 =" + CurrentCPRStep1);
+    }
+
+    private IEnumerator DelayedHideNext()
+    {
+        // Wait for 3 seconds
+        yield return new WaitForSeconds(3f);
+
+        // Trigger the 'shocked' animation
+        HideNext();
+    }
+
+    private void HideNext()
+    {
+        shake_oneself.gameObject.SetActive(false);
+        CheckBreath_component.gameObject.SetActive(true);
     }
 }

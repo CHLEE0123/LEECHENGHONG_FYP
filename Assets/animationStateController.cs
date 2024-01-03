@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class animationStateController : MonoBehaviour
 {
     public int CPRStep = 0;
+    public GameObject shakeComponent;
 
     public Animator playerAnimator;
     public float switchTime = 1f;
@@ -21,6 +22,7 @@ public class animationStateController : MonoBehaviour
 
     public Transform targetPosition;
     public GameObject player;
+
 
     public bool isWalking = false;
     public bool isWalking2 = false;
@@ -42,6 +44,7 @@ public class animationStateController : MonoBehaviour
         CPRmodel.gameObject.SetActive(false);
         teleportPoint.gameObject.SetActive(false);
 
+        shakeComponent.gameObject.SetActive(false);
 
         playerAnimator = this.gameObject.GetComponent<Animator>();
         // Attach the button click event to the method
@@ -84,6 +87,8 @@ public class animationStateController : MonoBehaviour
 
         CPRStep += 1;
         Debug.Log("CPRstep =" + CPRStep);
+
+        shakeComponent.gameObject.SetActive(true);
     }
 
     // Update is called once per frame
