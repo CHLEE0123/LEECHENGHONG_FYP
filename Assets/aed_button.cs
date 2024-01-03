@@ -88,10 +88,6 @@ void Update()
         aedUI_Text.text = "Ready to shock, 3..2..1.. Shock!";
         StartCoroutine(DelayedHideNext());
 
-        chestC_component.gameObject.SetActive(true);
-        instruction_title.text = "Fifth Step";
-        instruction_text.text = "Start Chest Compression! \nLocation: The lower half of the chest shall be the site for hand placement.  \nRate: 100 to 120 compressions per minute. \nDepth: 5cm but not greater than 6cm." ;
-
         Debug.Log("Shock button pocked!DONE DONE DONE");
 
     }
@@ -136,6 +132,6 @@ void Update()
         scissor.SetActive(false);
         chestC_component.gameObject.SetActive(true);
         instruction_title.text = "Fifth Step";
-        instruction_text.text = "Start Chest Compression! \nLocation: The lower half of the chest shall be the site for hand placement.  \nRate: 100 to 120 compressions per minute. \nDepth: 5cm but not greater than 6cm.";
+        instruction_text.text = "Start Chest Compression! \n\nLocation: The lower half of the chest shall be the site for hand placement.  \n\nRate: 100 to 120 compressions per minute. \n\nDepth: 5cm but not greater than 6cm.";
     }
 }

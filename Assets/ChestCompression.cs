@@ -12,6 +12,7 @@ public class ChestCompression : MonoBehaviour
 
     public GameObject chest_oneself;
     public GameObject rescue_component;
+    public GameObject handVisual;
     public TextMeshProUGUI instruction_title;
     public TextMeshProUGUI instruction_text;
 
@@ -53,7 +54,7 @@ public class ChestCompression : MonoBehaviour
         if (other.tag == "Button")
         {
             OnChestCompression();
-
+            handVisual.gameObject.SetActive(false);
             // Check if it's the first press
             if (isFirstPress)
             {

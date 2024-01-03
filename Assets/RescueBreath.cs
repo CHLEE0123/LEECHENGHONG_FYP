@@ -92,11 +92,11 @@ public class RescueBreath : MonoBehaviour
             breathDone.text = "Done!";
             StartCoroutine(DelayedHideNext());
             restart_Button.gameObject.SetActive(true);
-            instruction_title.text = "Instruction";
-            instruction_text.text = "You have done all the step for CPR! \nCPR can be stopped in following circumstances: " +
-                "\nVictim recovers with normal breathing. " +
-                "\nThe person who giving CPR is exhausted. " +
-                "\nAssistance arrives to take over CPR.";
+            instruction_title.text = "FINISH";
+            instruction_text.text = "You have done all the step for CPR! \n\nCPR can be stopped in following circumstances: " +
+                "\n\n 1) Victim recovers with normal breathing. " +
+                "\n\n 2) The person who giving CPR is exhausted. " +
+                "\n\n 3) Assistance arrives to take over CPR.\n";
 
         }
 
