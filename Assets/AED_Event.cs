@@ -17,6 +17,7 @@ public class AED_Event : MonoBehaviour
     public GameObject PadUpVisual;
     public GameObject PadDownVisual;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +28,7 @@ public class AED_Event : MonoBehaviour
         ScissorVisual.SetActive(false);
         PadUpVisual.SetActive(false);
         PadDownVisual.SetActive(false);
+
     }
 
     public void HideScissor()

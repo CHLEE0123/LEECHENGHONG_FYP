@@ -5,6 +5,13 @@ using TMPro;
 
 public class aed_button : MonoBehaviour
 {
+    public GameObject chestC_component;
+    public TextMeshProUGUI instruction_title;
+    public TextMeshProUGUI instruction_text;
+    public GameObject AED;
+    public GameObject AED_UI;
+    public GameObject scissor;
+
     public GameObject aed_Handvisual;
     public GameObject aed_Handvisual_shockPlace;
     public GameObject aedButton_UI;
@@ -27,6 +34,8 @@ public class aed_button : MonoBehaviour
         shockButton.SetActive(false);
         startButton.SetActive(true);
         aed_Handvisual.SetActive(true);
+
+        chestC_component.gameObject.SetActive(false);
     }
 
 
@@ -77,7 +86,12 @@ void Update()
         aedButton_UI.SetActive(false);
         aed_Handvisual.SetActive(false);
         aedUI_Text.text = "Ready to shock, 3..2..1.. Shock!";
-      
+        StartCoroutine(DelayedHideNext());
+
+        chestC_component.gameObject.SetActive(true);
+        instruction_title.text = "Fifth Step";
+        instruction_text.text = "Start Chest Compression! \nLocation: The lower half of the chest shall be the site for hand placement.  \nRate: 100 to 120 compressions per minute. \nDepth: 5cm but not greater than 6cm." ;
+
         Debug.Log("Shock button pocked!DONE DONE DONE");
 
     }
@@ -106,4 +120,22 @@ void Update()
         //aedUI_Text.text = "Stick the pad on the patient";
     }
 
+    private IEnumerator DelayedHideNext()
+    {
+        // Wait for 3 seconds
+        yield return new WaitForSeconds(5f);
+
+        // Trigger the 'shocked' animation
+        HideNext();
+    }
+
+    private void HideNext()
+    {
+        AED.SetActive(false);
+        AED_UI.SetActive(false);
+        scissor.SetActive(false);
+        chestC_component.gameObject.SetActive(true);
+        instruction_title.text = "Fifth Step";
+        instruction_text.text = "Start Chest Compression! \nLocation: The lower half of the chest shall be the site for hand placement.  \nRate: 100 to 120 compressions per minute. \nDepth: 5cm but not greater than 6cm.";
+    }
 }

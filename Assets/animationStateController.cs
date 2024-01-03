@@ -88,6 +88,7 @@ public class animationStateController : MonoBehaviour
         CPRStep += 1;
         Debug.Log("CPRstep =" + CPRStep);
 
+        //Call next step component
         shakeComponent.gameObject.SetActive(true);
     }
 

@@ -4,11 +4,16 @@ using UnityEngine;
 using UnityEngine.Events;
 using TMPro;
 
-public class VRbutton : MonoBehaviour
+public class ChestCompression : MonoBehaviour
 {
     public UnityEvent onPressed, onReleased;
     public TextMeshProUGUI bpmText;
     public TextMeshProUGUI countText;
+
+    public GameObject chest_oneself;
+    public GameObject rescue_component;
+    public TextMeshProUGUI instruction_title;
+    public TextMeshProUGUI instruction_text;
 
     private float startTime;
     private float lastCompressionTime;
@@ -19,6 +24,8 @@ public class VRbutton : MonoBehaviour
     {
         startTime = Time.time;
         lastCompressionTime = startTime;
+
+        rescue_component.gameObject.SetActive(false);
     }
 
     void Update()
@@ -27,6 +34,17 @@ public class VRbutton : MonoBehaviour
         if (!isFirstPress)
         {
             UpdateCompressionRate();
+        }
+
+        if (compressionsCount == 30)
+        {
+            chest_oneself.gameObject.SetActive(false);
+            rescue_component.gameObject.SetActive(true);
+            bpmText.text = "Done 30 time";
+            instruction_title.text = "Sixth Step";
+            instruction_text.text = "Now start for rescue breath! \nEach 30 chest compression should Give TWO rescue breath, and each rescue breath arround ONE second";
+
+
         }
     }
 

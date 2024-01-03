@@ -11,6 +11,11 @@ public class PhoneEvent : MonoBehaviour
     public HeadTriggerEvent script3;
     public int CurrentCPRStep3 = 0;
 
+    public GameObject phone_oneself;
+    public GameObject Aed_component;
+    public TextMeshProUGUI instruction_title;
+    public TextMeshProUGUI instruction_text;
+
     public GameObject originalposition;
 
     public string No1 = "";
@@ -35,6 +40,8 @@ public class PhoneEvent : MonoBehaviour
         BigNoUI.gameObject.SetActive(false);
         messageUI.SetActive(false);
         keypad.gameObject.SetActive(false);
+
+        Aed_component.gameObject.SetActive(false);
 
         //CurrentCPRStep3 = script3.CurrentCPRStep2;
         Debug.Log("CurrentCPRstep2 =" + CurrentCPRStep3);
@@ -376,6 +383,11 @@ public class PhoneEvent : MonoBehaviour
             messageUI.SetActive(true);
             message.text = "Great! You have called 999!";
             StartCoroutine(Delayed());
+            StartCoroutine(DelayedHideNext());
+
+            instruction_title.text = "Fourth Step";
+            instruction_text.text = "Find for AED is availabie or not! Early defibrillation is an essential step in the chain of survival for victims of cardiac arrest. ";
+
             // Increment the CPR step
             if (CurrentCPRStep3 != 4)
             {
@@ -404,6 +416,21 @@ public class PhoneEvent : MonoBehaviour
     public void hidePhoneMessage()
     {
         messageUI.SetActive(false);
+    }
+
+    private IEnumerator DelayedHideNext()
+    {
+        // Wait for 3 seconds
+        yield return new WaitForSeconds(5f);
+
+        // Trigger the 'shocked' animation
+        HideNext();
+    }
+
+    private void HideNext()
+    {
+        phone_oneself.gameObject.SetActive(false);
+        Aed_component.gameObject.SetActive(true);
     }
 
 

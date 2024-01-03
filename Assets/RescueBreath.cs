@@ -18,6 +18,13 @@ public class RescueBreath : MonoBehaviour
     public string breath1_check = "0";
     public string breath2_check = "0";
 
+    public GameObject rescue_oneself;
+    public GameObject chest_component;
+    public GameObject aed_component;
+    public GameObject restart_Button;
+    public TextMeshProUGUI instruction_title;
+    public TextMeshProUGUI instruction_text;
+
     void OnEnable()
     {
         // Reset UI elements when the script is enabled
@@ -83,9 +90,33 @@ public class RescueBreath : MonoBehaviour
             breath2_check = "1";
             breath2.color = Color.green;
             breathDone.text = "Done!";
+            StartCoroutine(DelayedHideNext());
+            restart_Button.gameObject.SetActive(true);
+            instruction_title.text = "Instruction";
+            instruction_text.text = "You have done all the step for CPR! \nCPR can be stopped in following circumstances: " +
+                "\nVictim recovers with normal breathing. " +
+                "\nThe person who giving CPR is exhausted. " +
+                "\nAssistance arrives to take over CPR.";
+
         }
 
 
+    }
+
+    private IEnumerator DelayedHideNext()
+    {
+        // Wait for 3 seconds
+        yield return new WaitForSeconds(2f);
+
+        // Trigger the 'shocked' animation
+        HideNext();
+    }
+
+    private void HideNext()
+    {
+        rescue_oneself.gameObject.SetActive(false);
+        chest_component.gameObject.SetActive(false);
+        aed_component.gameObject.SetActive(false);
     }
 
 

@@ -9,6 +9,11 @@ public class HeadTriggerEvent : MonoBehaviour
     public Shaking script2;
     public int CurrentCPRStep2 = 0;
 
+    public GameObject checkbreath_oneself;
+    public GameObject phone_component;
+    public TextMeshProUGUI instruction_title;
+    public TextMeshProUGUI instruction_text;
+
     public GameObject timerUI; // Assign the UI timer in the Inspector
     public TextMeshProUGUI timerTxt;
 
@@ -21,6 +26,8 @@ public class HeadTriggerEvent : MonoBehaviour
         timerUI.SetActive(false);
         CurrentCPRStep2 = script2.CurrentCPRStep1;
         Debug.Log("CurrentCPRstep2 =" + CurrentCPRStep2);
+
+        phone_component.gameObject.SetActive(false);
     }
 
     void OnTriggerEnter(Collider other)
@@ -98,6 +105,10 @@ public class HeadTriggerEvent : MonoBehaviour
     void CompleteBreathCheck()
     {
         timerTxt.text = "Done";
+
+        instruction_title.text = "Third Step";
+        instruction_text.text = "If patient breathing is abnormal, please call 999 and ready for giving CPR (Use the phone on your left)";
+
         // Increment the CPR step
         if (CurrentCPRStep2 != 3)
         {
@@ -111,5 +122,23 @@ public class HeadTriggerEvent : MonoBehaviour
 
         isCheckingBreath = false;
         Debug.Log("CurrentCPRstep2 =" + CurrentCPRStep2);
+
+        //Call next step component
+        StartCoroutine(DelayedHideNext());
+    }
+
+    private IEnumerator DelayedHideNext()
+    {
+        // Wait for 3 seconds
+        yield return new WaitForSeconds(2f);
+
+        // Trigger the 'shocked' animation
+        HideNext();
+    }
+
+    private void HideNext()
+    {
+        checkbreath_oneself.gameObject.SetActive(false);
+        phone_component.gameObject.SetActive(true);
     }
 }

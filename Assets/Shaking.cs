@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 //using UnityEngine.XR.Interaction.Toolkit;
 
 public class Shaking : MonoBehaviour
@@ -10,6 +11,11 @@ public class Shaking : MonoBehaviour
 
     public GameObject shake_oneself;
     public GameObject CheckBreath_component;
+    public TextMeshProUGUI instruction_title;
+    public TextMeshProUGUI instruction_text;
+    public GameObject CPR_Instruction;
+
+    public bool check = true;
 
     //public Rigidbody patientRigidbody; // Reference to the patient's Rigidbody
     public bool isShaking = false;
@@ -71,7 +77,9 @@ public class Shaking : MonoBehaviour
             {
                 Debug.Log("!!!!Shaking Started and shirt will shake!!!!");
 
+                //Call next step component
                 StartCoroutine(DelayedHideNext());
+
                 // Increment the CPR step
                 if (CurrentCPRStep1 != 2)
                 {
@@ -116,6 +124,19 @@ public class Shaking : MonoBehaviour
         Debug.Log("CurrentCPRstep1 =" + CurrentCPRStep1);
     }
 
+    public void instruction_Change()
+    {
+        
+        if (check)
+        {
+            CPR_Instruction.SetActive(true);
+            instruction_title.text = "First Step";
+            instruction_text.text = "First, shout and shaking the patient for checking their consciousness!";
+            check = false;
+        }
+
+    }
+
     private IEnumerator DelayedHideNext()
     {
         // Wait for 3 seconds
@@ -129,5 +150,8 @@ public class Shaking : MonoBehaviour
     {
         shake_oneself.gameObject.SetActive(false);
         CheckBreath_component.gameObject.SetActive(true);
+
+        instruction_title.text = "Second Step";
+        instruction_text.text = "Next, Open patient's airway and check for breathing!";
     }
 }
