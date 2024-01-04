@@ -50,8 +50,19 @@ public class animationStateController : MonoBehaviour
         // Attach the button click event to the method
         if (startButton != null)
         {
-            startButton.onClick.AddListener(StartAnimationSequence);
+
+            startButton.onClick.AddListener(call_Delay);
         }
+    }
+
+    private void call_Delay()
+    {
+        StartCoroutine(DelayedMenuDeactivation());
+    }
+    IEnumerator DelayedMenuDeactivation()
+    {
+        yield return new WaitForSeconds(0.2f);
+        StartAnimationSequence();
     }
 
     //Opennig scene for patient animation call
@@ -62,8 +73,7 @@ public class animationStateController : MonoBehaviour
 
         // Start the animation sequence when the button is clicked
         StartWalking();
-
-
+       
         InfoUI.gameObject.SetActive(false);
 
         // Hide the button after clicking
