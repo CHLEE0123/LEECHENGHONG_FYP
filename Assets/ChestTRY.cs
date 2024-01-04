@@ -33,14 +33,15 @@ public class ChestTRY : MonoBehaviour
             compressionsCount++;
             x = Time.time;
 
-        }
-        float timeSinceLastCompression = x - y;
+            float timeSinceLastCompression = x - y;
 
-        float compressionRate = time / timeSinceLastCompression;
-        var value = compressionRate.ToString("f0");
-        Debug.Log(value);
-        textRate.text = value;
-        y = x;
+            float compressionRate = time / timeSinceLastCompression;
+            var value = compressionRate.ToString("f0");
+            Debug.Log(value);
+            textRate.text = value;
+            y = x;
+
+        }
 
 
         // Calculate time difference since the last compression
