@@ -67,7 +67,7 @@ public class CheckAirway : MonoBehaviour
             AirwayUI.SetActive(true);
             checkBreath_collider.SetActive(true);
 
-            instruction_text.text = "Airway is opened, put your head near victim and check victim's breath for 10 seconds (look, hear and feel the breath of victim)";
+            instruction_text.text = "Airway is opened, put your head near victim and check victim's breath for ten seconds. \n\nLook at the movement of victim's chest, \n\nHear and Heel the breath of victim)";
             Debug.Log("Left and Right == 1 Airway UI SHOW!!");
 
             check = false;

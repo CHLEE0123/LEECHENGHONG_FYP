@@ -386,7 +386,7 @@ public class PhoneEvent : MonoBehaviour
             StartCoroutine(DelayedHideNext());
 
             instruction_title.text = "Fourth Step";
-            instruction_text.text = "Find for AED is availabie or not! Early defibrillation is an essential step in the chain of survival for victims of cardiac arrest. ";
+            instruction_text.text = "Find if AED is available or not! \n\nEarly defibrillation is an essential step in the chain of survival for victims of cardiac arrest. ";
 
             // Increment the CPR step
             if (CurrentCPRStep3 != 4)

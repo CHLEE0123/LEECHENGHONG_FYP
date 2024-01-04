@@ -107,7 +107,7 @@ public class HeadTriggerEvent : MonoBehaviour
         timerTxt.text = "Done";
 
         instruction_title.text = "Third Step";
-        instruction_text.text = "If patient breathing is abnormal, please call 999 and ready for giving CPR (Use the phone on your left)";
+        instruction_text.text = "If patient breathing is abnormal, Please Use the phone on your left to call 999, and get ready to peform CPR immediately";
 
         // Increment the CPR step
         if (CurrentCPRStep2 != 3)

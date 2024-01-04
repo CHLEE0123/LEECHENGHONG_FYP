@@ -152,6 +152,6 @@ public class Shaking : MonoBehaviour
         CheckBreath_component.gameObject.SetActive(true);
 
         instruction_title.text = "Second Step";
-        instruction_text.text = "Next, Open patient's airway and check for breathing!";
+        instruction_text.text = "Next, if victim does not respond, \n\nOpen victim's airway and check for breathing!";
     }
 }

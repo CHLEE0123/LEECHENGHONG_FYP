@@ -72,7 +72,7 @@ void Update()
             Debug.Log("Shock button pocked!");
         aedButton_UI.SetActive(false);
             aed_Handvisual.SetActive(false);
-            aedUI_Text.text = "First, Cut off patient's cloth with the scissor";
+            aedUI_Text.text = "First, Cut off victim's clothes with the scissors";
       //  }
 
     }
