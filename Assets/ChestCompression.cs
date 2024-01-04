@@ -20,13 +20,11 @@ public class ChestCompression : MonoBehaviour
     private float lastCompressionTime;
     private int compressionsCount;
     private bool isFirstPress = true;
+    private float targetBPM = 110f;
 
     void Start()
     {
-        startTime = Time.time;
-        lastCompressionTime = startTime;
-
-        rescue_component.gameObject.SetActive(false);
+        StartCompressionSession();
     }
 
     void Update()
@@ -37,16 +35,14 @@ public class ChestCompression : MonoBehaviour
             UpdateCompressionRate();
         }
 
-        if (compressionsCount == 30)
+        /* if (compressionsCount == 30)
         {
             chest_oneself.gameObject.SetActive(false);
             rescue_component.gameObject.SetActive(true);
-            bpmText.text = "Done 30 time";
+            bpmText.text = "Done 30 times";
             instruction_title.text = "Sixth Step";
-            instruction_text.text = "Now start for rescue breath! \nEach 30 chest compression should Give TWO rescue breath, and each rescue breath arround ONE second";
-
-
-        }
+            instruction_text.text = "Now start for rescue breath! \nEach 30 chest compressions should give TWO rescue breaths, and each rescue breath takes around ONE second";
+        }*/
     }
 
     public void OnTriggerEnter(Collider other)
@@ -58,7 +54,8 @@ public class ChestCompression : MonoBehaviour
             // Check if it's the first press
             if (isFirstPress)
             {
-                // Set initial BPM to 110 only after the first press
+                // Set initial BPM to a predefined value
+                SetInitialBPM(90f);
                 isFirstPress = false;
             }
 
@@ -85,8 +82,8 @@ public class ChestCompression : MonoBehaviour
         // Check if it's the first press
         if (isFirstPress)
         {
-            // Set initial BPM to 110 only after the first press
-            SetInitialBPM(110f);
+            // Set initial BPM to a predefined value
+            SetInitialBPM(90f);
         }
     }
 
@@ -94,6 +91,15 @@ public class ChestCompression : MonoBehaviour
     {
         // Set initial BPM value
         bpmText.text = "BPM: " + initialBPM.ToString("F0");
+    }
+
+    private void StartCompressionSession()
+    {
+        // Reset variables at the start of each compression session
+        startTime = Time.time;
+        lastCompressionTime = startTime;
+        compressionsCount = 0;
+        isFirstPress = true;
     }
 
     public void UpdateCompressionRate()
@@ -114,16 +120,21 @@ public class ChestCompression : MonoBehaviour
             bpmText.text = "BPM: " + compressionRate.ToString("F0");
             countText.text = "Count: " + compressionsCount.ToString("F0");
 
-            // Check if compression rate is within the target range (100-120 BPM)
-            if (compressionRate >= 100 && compressionRate <= 120)
+            // Check if compression rate is within the target range
+            if (compressionRate < targetBPM)
             {
-                // Provide feedback for correct rate
-                Debug.Log("Correct compression rate!");
+                // Provide feedback for increasing compression speed
+                Debug.Log("Increase compression speed. Target BPM: " + targetBPM);
+            }
+            else if (compressionRate > targetBPM)
+            {
+                // Provide feedback for decreasing compression speed
+                Debug.Log("Decrease compression speed. Target BPM: " + targetBPM);
             }
             else
             {
-                // Provide feedback for incorrect rate
-                Debug.Log("Incorrect compression rate. Aim for 100-120 BPM.");
+                // Provide feedback for correct rate
+                Debug.Log("Correct compression rate!");
             }
         }
         else
