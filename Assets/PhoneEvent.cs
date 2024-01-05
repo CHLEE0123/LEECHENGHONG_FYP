@@ -8,6 +8,8 @@ using TMPro;
 
 public class PhoneEvent : MonoBehaviour
 {
+    public UnityEvent audio_6_callsound, audio_6_1, audio_6_2, audio_7;
+
     public HeadTriggerEvent script3;
     public int CurrentCPRStep3 = 0;
 
@@ -380,13 +382,8 @@ public class PhoneEvent : MonoBehaviour
 
         if (No3 == "9" && No2 == "9" && No1 == "9")
         {
-            messageUI.SetActive(true);
-            message.text = "Great! You have called 999!";
-            StartCoroutine(Delayed());
-            StartCoroutine(DelayedHideNext());
-
-            instruction_title.text = "Fourth Step";
-            instruction_text.text = "Find if AED is available or not! \n\nEarly defibrillation is an essential step in the chain of survival for victims of cardiac arrest. ";
+            audio_6_callsound.Invoke();
+            StartCoroutine(before999());
 
             // Increment the CPR step
             if (CurrentCPRStep3 != 4)
@@ -399,6 +396,7 @@ public class PhoneEvent : MonoBehaviour
         else{
             messageUI.SetActive(true);
             message.text = "Fast! Call 999!";
+            audio_6_1.Invoke();
             // Start a coroutine for delayed message hide
             StartCoroutine(Delayed());
 
@@ -429,9 +427,29 @@ public class PhoneEvent : MonoBehaviour
 
     private void HideNext()
     {
+        audio_7.Invoke();
         phone_oneself.gameObject.SetActive(false);
         Aed_component.gameObject.SetActive(true);
     }
 
+    private IEnumerator before999()
+    {
+        // Wait for 5 seconds
+        yield return new WaitForSeconds(8f);
 
+        // Start CPR sequence
+        successful999();
+    }
+
+    public void successful999()
+    {
+        messageUI.SetActive(true);
+        message.text = "Great! You have called 999!";
+        audio_6_2.Invoke();
+        StartCoroutine(Delayed());
+        StartCoroutine(DelayedHideNext());
+
+        instruction_title.text = "Fourth Step";
+        instruction_text.text = "Find if AED is available or not! \n\nEarly defibrillation is an essential step in the chain of survival for victims of cardiac arrest. ";
+    }
 }

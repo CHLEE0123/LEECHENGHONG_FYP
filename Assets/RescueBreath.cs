@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using TMPro;
 
 public class RescueBreath : MonoBehaviour
 {
+    public UnityEvent audio_15;
 
     public float GiveBreathDuration = 1f; // Duration to stay in trigger position (in seconds)
     private float currentBreathTime = 0f;
@@ -97,6 +99,7 @@ public class RescueBreath : MonoBehaviour
                 "\n\n 1) Victim recovers with normal breathing. " +
                 "\n\n 2) The person who giving CPR is exhausted. " +
                 "\n\n 3) Assistance arrives to take over CPR.\n";
+            audio_15.Invoke();
 
         }
 

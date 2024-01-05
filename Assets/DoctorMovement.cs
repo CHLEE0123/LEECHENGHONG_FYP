@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DoctorMovement : MonoBehaviour
 {
+    public UnityEvent audio_2;
+
     public Transform targetTransform1;
     public Transform targetTransform2;
     public Transform targetTransform3;
@@ -69,6 +72,7 @@ public class DoctorMovement : MonoBehaviour
         // Ensure the object reaches exactly the target position and rotation
         transform.position = targetTransform2.position;
         transform.rotation = targetTransform2.rotation;
+        audio_2.Invoke();
     }
 
     private IEnumerator MoveToTargetCoroutine3()

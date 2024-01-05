@@ -6,6 +6,8 @@ using TMPro;
 
 public class ChestCompression : MonoBehaviour
 {
+    public UnityEvent audio_14;
+
     public UnityEvent onPressed, onReleased;
     public TextMeshProUGUI bpmText;
     public TextMeshProUGUI countText;
@@ -41,6 +43,7 @@ public class ChestCompression : MonoBehaviour
             bpmText.text = "Done 30 times";
             instruction_title.text = "Sixth Step";
             instruction_text.text = "Now start for rescue breath! \nEach 30 chest compressions should give TWO rescue breaths, and each rescue breath takes around ONE second";
+            audio_14.Invoke();
         }
     }
 

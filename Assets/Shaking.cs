@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using TMPro;
 //using UnityEngine.XR.Interaction.Toolkit;
 
@@ -8,6 +9,9 @@ public class Shaking : MonoBehaviour
 {
     public animationStateController script1;
     public int CurrentCPRStep1 = 0;
+
+
+    public UnityEvent  audio_3, audio_4;
 
     public GameObject shake_oneself;
     public GameObject CheckBreath_component;
@@ -133,6 +137,7 @@ public class Shaking : MonoBehaviour
             instruction_title.text = "First Step";
             instruction_text.text = "First, shout and shaking the patient for checking their consciousness!";
             check = false;
+            audio_3.Invoke();
         }
 
     }
@@ -153,5 +158,6 @@ public class Shaking : MonoBehaviour
 
         instruction_title.text = "Second Step";
         instruction_text.text = "Next, if victim does not respond, \n\nOpen victim's airway and check for breathing!";
+        audio_4.Invoke();
     }
 }

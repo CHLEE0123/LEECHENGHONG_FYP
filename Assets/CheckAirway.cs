@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using TMPro;
 
 public class CheckAirway : MonoBehaviour
 {
+    public UnityEvent audio_5;
+
     public bool check = true;
 
     public GameObject HandVisual;
@@ -67,8 +70,9 @@ public class CheckAirway : MonoBehaviour
             AirwayUI.SetActive(true);
             checkBreath_collider.SetActive(true);
 
-            instruction_text.text = "Airway is opened, put your head near victim and check victim's breath for ten seconds. \n\nLook at the movement of victim's chest, \n\nHear and Heel the breath of victim)";
+            instruction_text.text = "Airway is opened, put your head near victim and check victim's breath for ten seconds. \n\nLook at the movement of victim's chest, \n\nHear and Feel the breath of victim!";
             Debug.Log("Left and Right == 1 Airway UI SHOW!!");
+            audio_5.Invoke();
 
             check = false;
         }

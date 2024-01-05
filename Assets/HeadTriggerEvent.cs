@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 using TMPro;
 
 public class HeadTriggerEvent : MonoBehaviour
 {
+    public UnityEvent audio_6;
+
     public Shaking script2;
     public int CurrentCPRStep2 = 0;
 
@@ -108,6 +111,7 @@ public class HeadTriggerEvent : MonoBehaviour
 
         instruction_title.text = "Third Step";
         instruction_text.text = "If patient breathing is abnormal, Please Use the phone on your left to call 999, and get ready to peform CPR immediately";
+        audio_6.Invoke();
 
         // Increment the CPR step
         if (CurrentCPRStep2 != 3)

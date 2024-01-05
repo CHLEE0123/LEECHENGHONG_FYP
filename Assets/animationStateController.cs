@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class animationStateController : MonoBehaviour
@@ -141,6 +142,7 @@ public class animationStateController : MonoBehaviour
                 // Switch to laying down animation
                 Debug.Log("Switching to Laying Down");
                 GoNearUI.SetActive(true);
+                
 
             }
         }
@@ -221,6 +223,7 @@ public class animationStateController : MonoBehaviour
         playerAnimator.SetBool("isFallDown", true);
         isWalking2 = false;
         isFallDown = true;
+
     }
 
     //void StartLaying()
