@@ -10,6 +10,8 @@ public class HideTeleportEffects : MonoBehaviour
     public GameObject credit;
     public GameObject control;
 
+    public GameObject information_slides;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +28,7 @@ public class HideTeleportEffects : MonoBehaviour
     {
         scenerios.gameObject.SetActive(false);
         information.gameObject.SetActive(true);
+        information_slides.gameObject.SetActive(false);
         quiz.gameObject.SetActive(true);
         credit.gameObject.SetActive(true);
         control.gameObject.SetActive(true);
@@ -35,6 +38,7 @@ public class HideTeleportEffects : MonoBehaviour
     {
         scenerios.gameObject.SetActive(true);
         information.gameObject.SetActive(false);
+        information_slides.gameObject.SetActive(true);
         quiz.gameObject.SetActive(true);
         credit.gameObject.SetActive(true);
         control.gameObject.SetActive(true);
@@ -44,6 +48,7 @@ public class HideTeleportEffects : MonoBehaviour
     {
         scenerios.gameObject.SetActive(true);
         information.gameObject.SetActive(true);
+        information_slides.gameObject.SetActive(false);
         quiz.gameObject.SetActive(false);
         credit.gameObject.SetActive(true);
         control.gameObject.SetActive(true);
@@ -53,6 +58,7 @@ public class HideTeleportEffects : MonoBehaviour
     {
         scenerios.gameObject.SetActive(true);
         information.gameObject.SetActive(true);
+        information_slides.gameObject.SetActive(false);
         quiz.gameObject.SetActive(true);
         credit.gameObject.SetActive(false);
         control.gameObject.SetActive(true);
@@ -62,6 +68,7 @@ public class HideTeleportEffects : MonoBehaviour
     {
         scenerios.gameObject.SetActive(true);
         information.gameObject.SetActive(true);
+        information_slides.gameObject.SetActive(false);
         quiz.gameObject.SetActive(true);
         credit.gameObject.SetActive(true);
         control.gameObject.SetActive(false);

@@ -32,7 +32,7 @@ public class DoctorMovement : MonoBehaviour
         Vector3 startingPosition = transform.position;
         Quaternion startingRotation = transform.rotation;
 
-        while (elapsedTime < 1f)
+        while (elapsedTime < 5f)
         {
             transform.position = Vector3.Lerp(startingPosition, targetTransform1.position, elapsedTime);
             transform.rotation = Quaternion.Slerp(startingRotation, targetTransform1.rotation, elapsedTime);
@@ -42,8 +42,8 @@ public class DoctorMovement : MonoBehaviour
         }
 
         // Ensure the object reaches exactly the target position and rotation
-        transform.position = targetTransform1.position;
-        transform.rotation = targetTransform1.rotation;
+        //transform.position = targetTransform1.position;
+        //transform.rotation = targetTransform1.rotation;
 
         StartCoroutine(DelayedChange());
     }
@@ -59,8 +59,9 @@ public class DoctorMovement : MonoBehaviour
         float elapsedTime = 0f;
         Vector3 startingPosition = transform.position;
         Quaternion startingRotation = transform.rotation;
+        audio_2.Invoke();
 
-        while (elapsedTime < 10f)
+        while (elapsedTime < 5f)
         {
             transform.position = Vector3.Lerp(startingPosition, targetTransform2.position, elapsedTime);
             transform.rotation = Quaternion.Slerp(startingRotation, targetTransform2.rotation, elapsedTime);
@@ -70,9 +71,9 @@ public class DoctorMovement : MonoBehaviour
         }
 
         // Ensure the object reaches exactly the target position and rotation
-        transform.position = targetTransform2.position;
-        transform.rotation = targetTransform2.rotation;
-        audio_2.Invoke();
+        //transform.position = targetTransform2.position;
+        //transform.rotation = targetTransform2.rotation;
+
     }
 
     private IEnumerator MoveToTargetCoroutine3()
@@ -81,7 +82,7 @@ public class DoctorMovement : MonoBehaviour
         Vector3 startingPosition = transform.position;
         Quaternion startingRotation = transform.rotation;
 
-        while (elapsedTime < 50f)
+        while (elapsedTime < 10f)
         {
             transform.position = Vector3.Lerp(startingPosition, targetTransform3.position, elapsedTime);
             transform.rotation = Quaternion.Slerp(startingRotation, targetTransform3.rotation, elapsedTime);
@@ -91,7 +92,7 @@ public class DoctorMovement : MonoBehaviour
         }
 
         // Ensure the object reaches exactly the target position and rotation
-        transform.position = targetTransform3.position;
-        transform.rotation = targetTransform3.rotation;
+        //transform.position = targetTransform3.position;
+        //transform.rotation = targetTransform3.rotation;
     }
 }

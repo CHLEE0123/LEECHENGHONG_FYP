@@ -4,12 +4,31 @@ using UnityEngine;
 
 public class locationSound : MonoBehaviour
 {
+    public AudioClip scenerios;
     public AudioClip information;
     public AudioClip quiz;
     public AudioClip control;
     public AudioClip credit;
 
     private AudioSource audioSource;
+
+    public void play_audio_scenerios()
+    {
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+
+        // Assign the background audio clip
+        audioSource.clip = scenerios;
+
+        // Configure the AudioSource settings
+        audioSource.volume = 10f; // Adjust the volume as needed
+
+        // Start playing the background audio
+        audioSource.Play();
+    }
 
     public void play_audio_information()
     {

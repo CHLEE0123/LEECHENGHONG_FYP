@@ -40,7 +40,7 @@ public class DoctorInstruction : MonoBehaviour
         audioSource.clip = audio_1;
 
         // Configure the AudioSource settings
-        audioSource.volume = 5f; // Adjust the volume as needed
+        audioSource.volume = 1f; // Adjust the volume as needed
 
         // Start playing the background audio
         audioSource.Play();
