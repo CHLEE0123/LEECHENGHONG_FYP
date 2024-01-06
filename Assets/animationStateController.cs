@@ -9,6 +9,8 @@ public class animationStateController : MonoBehaviour
     public int CPRStep = 0;
     public GameObject shakeComponent;
 
+    public UnityEvent fallDown;
+
     public Animator playerAnimator;
     public float switchTime = 1f;
     public float walkSpeed = 1f;
@@ -20,6 +22,7 @@ public class animationStateController : MonoBehaviour
     public GameObject patientModel;
     public GameObject CPRmodel;
     public GameObject teleportPoint;
+    public GameObject MenuteleportPoint;
 
     public Transform targetPosition;
     public GameObject player;
@@ -43,7 +46,7 @@ public class animationStateController : MonoBehaviour
         tutorialUI.gameObject.SetActive(false);
         GoNearUI.gameObject.SetActive(false);
         CPRmodel.gameObject.SetActive(false);
-        teleportPoint.gameObject.SetActive(false);
+        teleportPoint.gameObject.SetActive(false);       
 
         shakeComponent.gameObject.SetActive(false);
 
@@ -76,6 +79,7 @@ public class animationStateController : MonoBehaviour
         StartWalking();
        
         InfoUI.gameObject.SetActive(false);
+        MenuteleportPoint.gameObject.SetActive(false);
 
         // Hide the button after clicking
         if (startButton != null)
@@ -142,6 +146,7 @@ public class animationStateController : MonoBehaviour
                 // Switch to laying down animation
                 Debug.Log("Switching to Laying Down");
                 GoNearUI.SetActive(true);
+                
                 
 
             }
@@ -223,8 +228,19 @@ public class animationStateController : MonoBehaviour
         playerAnimator.SetBool("isFallDown", true);
         isWalking2 = false;
         isFallDown = true;
-
+        StartCoroutine(DelayedCfall());
     }
+
+    private IEnumerator DelayedCfall()
+    {
+        // Wait for 0.5 seconds
+        yield return new WaitForSeconds(1.2f);
+
+        // Start CPR sequence
+        fallDown.Invoke();
+    }
+
+    
 
     //void StartLaying()
     //{
@@ -246,4 +262,6 @@ public class animationStateController : MonoBehaviour
         playerAnimator.SetBool("isFallDown", false);
        // playerAnimator.SetBool("isLaying", false);
     }
+
+
 }

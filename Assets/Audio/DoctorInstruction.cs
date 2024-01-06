@@ -46,6 +46,42 @@ public class DoctorInstruction : MonoBehaviour
         audioSource.Play();
     }
 
+    public void stop_audio_1()
+    {
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+
+        // Assign the background audio clip
+        audioSource.clip = audio_1;
+
+        // Configure the AudioSource settings
+        audioSource.volume = 5f; // Adjust the volume as needed
+
+        // Start playing the background audio
+        audioSource.Stop();
+    }
+
+    public void PLay_audio_1()
+    {
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+
+        // Assign the background audio clip
+        audioSource.clip = audio_1;
+
+        // Configure the AudioSource settings
+        audioSource.volume = 5f; // Adjust the volume as needed
+
+        // Start playing the background audio
+        audioSource.Play();
+    }
+
     public void PLay_audio_2()
     {
         audioSource = GetComponent<AudioSource>();
