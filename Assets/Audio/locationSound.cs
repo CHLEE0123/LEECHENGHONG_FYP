@@ -26,7 +26,7 @@ public class locationSound : MonoBehaviour
         audioSource.volume = 10f; // Adjust the volume as needed
 
         // Start playing the background audio
-        audioSource.Stop();
+        audioSource.Play();
     }
 
     public void play_audio_quiz()
@@ -44,7 +44,7 @@ public class locationSound : MonoBehaviour
         audioSource.volume = 10f; // Adjust the volume as needed
 
         // Start playing the background audio
-        audioSource.Stop();
+        audioSource.Play();
     }
 
     public void play_audio_credit()
@@ -62,7 +62,7 @@ public class locationSound : MonoBehaviour
         audioSource.volume = 10f; // Adjust the volume as needed
 
         // Start playing the background audio
-        audioSource.Stop();
+        audioSource.Play();
     }
 
     public void play_audio_control()
@@ -80,6 +80,6 @@ public class locationSound : MonoBehaviour
         audioSource.volume = 10f; // Adjust the volume as needed
 
         // Start playing the background audio
-        audioSource.Stop();
+        audioSource.Play();
     }
 }
