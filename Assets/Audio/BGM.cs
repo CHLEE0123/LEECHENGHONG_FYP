@@ -21,7 +21,7 @@ public class BGM : MonoBehaviour
         audioSource.clip = backgroundMusic;
 
         // Configure the AudioSource settings
-        audioSource.volume = 0.15f; // Adjust the volume as needed
+        audioSource.volume = 0.1f; // Adjust the volume as needed
         audioSource.loop = true;
 
         // Start playing the background audio

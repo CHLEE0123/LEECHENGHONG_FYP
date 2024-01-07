@@ -50,7 +50,7 @@ public class DoctorMovement : MonoBehaviour
 
     IEnumerator DelayedChange()
     {
-        yield return new WaitForSeconds(6f);
+        yield return new WaitForSeconds(4f);
         StartCoroutine(MoveToTargetCoroutine2());
     }
 
