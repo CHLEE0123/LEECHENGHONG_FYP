@@ -29,7 +29,19 @@ public class DoctorInstruction : MonoBehaviour
 
     void Start()
     {
-        // Add an AudioSource component if not already present
+
+    }
+
+    public void PLay_audio_1()
+    {
+        StartCoroutine(Delayed_Audio1());
+    }
+
+    private IEnumerator Delayed_Audio1()
+    {
+        // Wait for 5 seconds
+        yield return new WaitForSeconds(1.5f);
+
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null)
         {
@@ -40,7 +52,7 @@ public class DoctorInstruction : MonoBehaviour
         audioSource.clip = audio_1;
 
         // Configure the AudioSource settings
-        audioSource.volume = 1f; // Adjust the volume as needed
+        audioSource.volume = 5f; // Adjust the volume as needed
 
         // Start playing the background audio
         audioSource.Play();
@@ -62,24 +74,6 @@ public class DoctorInstruction : MonoBehaviour
 
         // Start playing the background audio
         audioSource.Stop();
-    }
-
-    public void PLay_audio_1()
-    {
-        audioSource = GetComponent<AudioSource>();
-        if (audioSource == null)
-        {
-            audioSource = gameObject.AddComponent<AudioSource>();
-        }
-
-        // Assign the background audio clip
-        audioSource.clip = audio_1;
-
-        // Configure the AudioSource settings
-        audioSource.volume = 5f; // Adjust the volume as needed
-
-        // Start playing the background audio
-        audioSource.Play();
     }
 
     public void PLay_audio_2()

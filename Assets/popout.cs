@@ -5,11 +5,11 @@ using UnityEngine;
 public class popout : MonoBehaviour
 {
     public GameObject pop;
+    public GameObject pop_UI;
     // Start is called before the first frame update
     void Start()
     {
-        pop.gameObject.SetActive(false);
-        StartCoroutine(pop_show());
+        pop.gameObject.SetActive(false);       
     }
 
     // Update is called once per frame
@@ -18,6 +18,10 @@ public class popout : MonoBehaviour
         
     }
 
+    public void call_pop()
+    {
+        StartCoroutine(pop_show());
+    }
 
     private IEnumerator pop_show()
     {
@@ -25,5 +29,6 @@ public class popout : MonoBehaviour
         yield return new WaitForSeconds(5.5f);
 
         pop.gameObject.SetActive(true);
+        pop_UI.gameObject.SetActive(false);
     }
 }
