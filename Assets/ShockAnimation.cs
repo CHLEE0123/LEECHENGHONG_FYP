@@ -41,7 +41,7 @@ public class ShockAnimation : MonoBehaviour
     IEnumerator DelayedShockedAnimation()
     {
         // Wait for 3 seconds
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(7f);
 
         // Trigger the 'shocked' animation
         SetShockedState();

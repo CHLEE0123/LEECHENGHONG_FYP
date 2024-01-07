@@ -23,6 +23,7 @@ public class animationStateController : MonoBehaviour
     public GameObject CPRmodel;
     public GameObject teleportPoint;
     public GameObject MenuteleportPoint;
+    public GameObject CreditTeleportPoint;
 
     public Transform targetPosition;
     public GameObject player;
@@ -61,6 +62,7 @@ public class animationStateController : MonoBehaviour
 
     private void call_Delay()
     {
+        CreditTeleportPoint.gameObject.SetActive(false);
         StartCoroutine(DelayedMenuDeactivation());
     }
     IEnumerator DelayedMenuDeactivation()

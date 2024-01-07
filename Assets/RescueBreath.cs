@@ -7,6 +7,7 @@ using TMPro;
 public class RescueBreath : MonoBehaviour
 {
     public UnityEvent audio_15;
+    private AudioSource audioSource;
 
     public float GiveBreathDuration = 1f; // Duration to stay in trigger position (in seconds)
     private float currentBreathTime = 0f;
@@ -84,21 +85,34 @@ public class RescueBreath : MonoBehaviour
         Debug.Log("Performing rescue breath");
         if (breath1_check == "0")
         {
+            audioSource = GetComponent<AudioSource>();
+            if (audioSource == null)
+            {
+                audioSource = gameObject.AddComponent<AudioSource>();
+            }
+
             breath1_check = "1";
+            audioSource.Play();
             breath1.color = Color.green;
         }
         else if (breath1_check != "0" && breath2_check == "0")
         {
+            audioSource = GetComponent<AudioSource>();
+            if (audioSource == null)
+            {
+                audioSource = gameObject.AddComponent<AudioSource>();
+            }
             breath2_check = "1";
+            audioSource.Play();
             breath2.color = Color.green;
             breathDone.text = "Done!";
             StartCoroutine(DelayedHideNext());
             restart_Button.gameObject.SetActive(true);
             instruction_title.text = "FINISH";
-            instruction_text.text = "You have done all the step for CPR! \n\nCPR can be stopped in following circumstances: " +
-                "\n\n 1) Victim recovers with normal breathing. " +
-                "\n\n 2) The person who giving CPR is exhausted. " +
-                "\n\n 3) Assistance arrives to take over CPR.\n";
+            instruction_text.text = "You have done all the step for CPR! \nCPR can be stopped in following circumstances: " +
+                "\n 1) Victim recovers with normal breathing. " +
+                "\n 2) The person who giving CPR is exhausted. " +
+                "\n 3) Assistance arrives to take over CPR.\n";
             audio_15.Invoke();
 
         }

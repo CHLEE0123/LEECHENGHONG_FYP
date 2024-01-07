@@ -138,7 +138,7 @@ void Update()
         // Wait for 3 seconds
         yield return new WaitForSeconds(8f);
 
-        // Trigger the 'shocked' animation
+        
         HideNext();
     }
 

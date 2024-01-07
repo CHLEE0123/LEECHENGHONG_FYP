@@ -9,6 +9,9 @@ public class HeadTriggerEvent : MonoBehaviour
 {
     public UnityEvent audio_6;
 
+    public AudioClip soundClip;
+    private AudioSource audioSource;
+
     public Shaking script2;
     public int CurrentCPRStep2 = 0;
 
@@ -77,6 +80,17 @@ public class HeadTriggerEvent : MonoBehaviour
 
     void StartBreathCheck()
     {
+
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+
+        // Set the audio clip
+        audioSource.clip = soundClip;
+        audioSource.Play();
+
         // Enable the timer UI
         timerUI.SetActive(true);
 
@@ -107,6 +121,8 @@ public class HeadTriggerEvent : MonoBehaviour
     // Call this method when the breath check is successfully completed
     void CompleteBreathCheck()
     {
+        audioSource.Stop();
+
         timerTxt.text = "Done";
 
         instruction_title.text = "Third Step";

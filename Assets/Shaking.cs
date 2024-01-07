@@ -13,6 +13,8 @@ public class Shaking : MonoBehaviour
 
     public UnityEvent  audio_3, audio_4;
 
+    public GameObject save_area;
+
     public GameObject shake_oneself;
     public GameObject CheckBreath_component;
     public TextMeshProUGUI instruction_title;
@@ -134,6 +136,7 @@ public class Shaking : MonoBehaviour
         if (check)
         {
             CPR_Instruction.SetActive(true);
+            save_area.gameObject.SetActive(false);
             instruction_title.text = "First Step";
             instruction_text.text = "First, shout and shaking the patient for checking their consciousness!";
             check = false;

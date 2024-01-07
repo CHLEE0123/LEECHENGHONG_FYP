@@ -77,7 +77,7 @@ public class ChestCompression : MonoBehaviour
     {
         if (other.tag == "Button")
         {
-            OnChestCompression();
+            //OnChestCompression();
             onReleased?.Invoke();
             Debug.Log("I have been released");
         }

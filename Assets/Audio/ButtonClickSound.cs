@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ButtonClickSound : MonoBehaviour
 {
@@ -33,6 +34,18 @@ public class ButtonClickSound : MonoBehaviour
     {
         // Play the button click sound
         audioSource.Play();
+    }
+
+    // Function to handle the restart button click
+    public void Restart_Game()
+    {
+        // Reload the current scene (adjust the scene name if needed)
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void LoadSceneUsingName(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
     }
 }
 

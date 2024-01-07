@@ -10,6 +10,7 @@ public class ScissorEvent : MonoBehaviour
     public GameObject PatientCloth;
     public GameObject pad1_snapPoint;
     public GameObject pad2_snapPoint;
+    public GameObject scissors;
 
     public TextMeshProUGUI aedUI_Text;
 
@@ -19,6 +20,7 @@ public class ScissorEvent : MonoBehaviour
         {
 
             PatientCloth.SetActive(false);
+            scissors.SetActive(false);
             pad1_snapPoint.SetActive(true);
             pad2_snapPoint.SetActive(true);
             audio_scissors.Invoke();
@@ -31,7 +33,7 @@ public class ScissorEvent : MonoBehaviour
     private IEnumerator nextAudio()
     {
         // Wait for 5 seconds
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(2.1f);
 
         // Start CPR sequence
         aedUI_Text.text = "Next, Stick the pad on the patient";

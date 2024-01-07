@@ -396,7 +396,7 @@ public class PhoneEvent : MonoBehaviour
         else{
             messageUI.SetActive(true);
             message.text = "Fast! Call 999!";
-            audio_6_1.Invoke();
+            audio_6_2.Invoke();
             // Start a coroutine for delayed message hide
             StartCoroutine(Delayed());
 
@@ -445,7 +445,7 @@ public class PhoneEvent : MonoBehaviour
     {
         messageUI.SetActive(true);
         message.text = "Great! You have called 999!";
-        audio_6_2.Invoke();
+        audio_6_1.Invoke();
         StartCoroutine(Delayed());
         StartCoroutine(DelayedHideNext());
 

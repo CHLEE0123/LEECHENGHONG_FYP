@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ImportCPR.unity
     guid: ae7ed0b482653a6418fc8b97470d763e
+  - enabled: 1
+    path: Assets/Scenes/RE0_VRCPR.unity
+    guid: cce0d547dc5bd2c4fbd2a4d38a3e79e4
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 60706bb582ecb3d4a9fc6de01413cbf7,
       type: 2}
