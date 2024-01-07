@@ -5,15 +5,10 @@ using TMPro;
 
 public class timerCount : MonoBehaviour
 {
-    public AudioSource countdown_audioSource;
-
+    public AudioSource countdownAudioSource;
     public float countdownDuration = 5f;
-    private float timer;
+    private float timer = 0f;
     public TextMeshProUGUI countdownText;
-
-    void Start()
-    {
-    }
 
     void Update()
     {
@@ -21,14 +16,26 @@ public class timerCount : MonoBehaviour
         {
             timer -= Time.deltaTime;
             UpdateUI();
-            countdown_audioSource.Play();
-            countdownText.text = timer.ToString();
         }
     }
 
     public void UpdateUI()
     {
-        timer = countdownDuration;
+        int seconds = Mathf.CeilToInt(timer);
+        countdownText.text = seconds.ToString();
+    }
 
+
+    public void StartCountdown()
+    {
+        ResetTimer();
+    }
+
+    void ResetTimer()
+    {
+        countdownAudioSource.Play();
+        timer = countdownDuration;
+        UpdateUI();
     }
 }
+

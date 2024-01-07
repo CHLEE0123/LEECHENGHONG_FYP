@@ -6,10 +6,13 @@ public class popout : MonoBehaviour
 {
     public GameObject pop;
     public GameObject pop_UI;
+    public GameObject trailer;
+
     // Start is called before the first frame update
     void Start()
     {
-        pop.gameObject.SetActive(false);       
+        pop.gameObject.SetActive(false);
+        trailer.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -20,6 +23,7 @@ public class popout : MonoBehaviour
 
     public void call_pop()
     {
+        pop_UI.gameObject.SetActive(true);
         StartCoroutine(pop_show());
     }
 
@@ -29,6 +33,8 @@ public class popout : MonoBehaviour
         yield return new WaitForSeconds(5.5f);
 
         pop.gameObject.SetActive(true);
+        trailer.gameObject.SetActive(true);
         pop_UI.gameObject.SetActive(false);
+
     }
 }

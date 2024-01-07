@@ -24,6 +24,8 @@ public class HideTeleportEffects : MonoBehaviour
     public GameObject credit;
     public GameObject control;
 
+    public GameObject tutorial_UI;
+
     public GameObject backLobby;
 
     public GameObject information_slides;
@@ -61,6 +63,7 @@ public class HideTeleportEffects : MonoBehaviour
         credit_show.gameObject.SetActive(false);
         pop.gameObject.SetActive(false);
 
+        tutorial_UI.gameObject.SetActive(false);
         control.gameObject.SetActive(true);
 
     }
@@ -85,6 +88,8 @@ public class HideTeleportEffects : MonoBehaviour
 
         credit.gameObject.SetActive(true);
         credit_show.gameObject.SetActive(false);
+
+        tutorial_UI.gameObject.SetActive(false);
         control.gameObject.SetActive(true);
     }
 
@@ -106,6 +111,8 @@ public class HideTeleportEffects : MonoBehaviour
 
         credit.gameObject.SetActive(true);
         credit_show.gameObject.SetActive(false);
+
+        tutorial_UI.gameObject.SetActive(false);
         control.gameObject.SetActive(true);
     }
 
@@ -128,6 +135,8 @@ public class HideTeleportEffects : MonoBehaviour
 
         credit.gameObject.SetActive(true);
         credit_show.gameObject.SetActive(false);
+
+        tutorial_UI.gameObject.SetActive(false);
         control.gameObject.SetActive(true);
     }
 
@@ -157,7 +166,9 @@ public class HideTeleportEffects : MonoBehaviour
         quiz_UI.gameObject.SetActive(false);
         quiz_hint.gameObject.SetActive(true);
 
-        credit.gameObject.SetActive(false);       
+        credit.gameObject.SetActive(false);      
+
+        tutorial_UI.gameObject.SetActive(false);
         control.gameObject.SetActive(false);
 
     }
@@ -180,6 +191,8 @@ public class HideTeleportEffects : MonoBehaviour
 
         credit.gameObject.SetActive(true);
         credit_show.gameObject.SetActive(false);
+
+        tutorial_UI.gameObject.SetActive(true);
         control.gameObject.SetActive(false);
     }
 }
